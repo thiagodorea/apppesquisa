@@ -13,7 +13,7 @@ import com.devsuperior.dspesquisa.entities.Record;
 @Repository
 public interface RecordRepository extends JpaRepository<Record, Long>{
 
-	@Query("select rec from Record rec where" + "(:min is null or rec.moment >= :min) and " + "(:max is null or rec.moment <= :max)")
+	@Query("select rec from Record rec where" + "(coalesce(:min, null) is null  or rec.moment >= :min) and " + "(coalesce(:max, null) is null or rec.moment <= :max)")
 	Page<Record> findByMoments(Instant min, Instant max, Pageable pageable);
 
 }
