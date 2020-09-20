@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-import { Link } from 'react-router-dom'
+import Filters from '../../components/Filters';
 import './style.css';
-import { RecordsResponse } from './types'
-import { formatDate } from './helpers'
-import  Pagination  from './Pagination'
+import { RecordsResponse } from './types';
+import { formatDate } from './helpers';
+import Pagination from './Pagination';
 
 const BASE_URL = 'http://10.146.23.24:8080'
 const Records = () => {
@@ -12,9 +12,9 @@ const Records = () => {
     const [recordsResponse, setRecordsResponse] = useState<RecordsResponse>();
     const [activePage, setActivePage] = useState(0);
 
-    useEffect( ()=>{
+    useEffect(() => {
         axios.get(`${BASE_URL}/records?linesPerPage=12&page=${activePage}`)
-        .then(resp => setRecordsResponse(resp.data))
+            .then(resp => setRecordsResponse(resp.data))
     }, [activePage]);
 
     const handlePageChange = (index: number) => {
@@ -23,11 +23,7 @@ const Records = () => {
 
     return (
         <div className="page-container">
-            <div className="filters-container records-actions">
-                <Link to="/charts">
-                    <button className="action-filters">VER GRAFICO</button>
-                </Link>
-            </div>
+            <Filters link="/charts" linkText="VER GRAFICOS" />
             <table className="records-table" cellPadding="0" cellSpacing="0">
                 <thead>
                     <tr>
@@ -40,19 +36,19 @@ const Records = () => {
                     </tr>
                 </thead>
                 <tbody>
-                {recordsResponse?.content.map(record =>(
-                    <tr key={record.id}>
-                        <td>{formatDate(record.moment)}</td>
-                        <td>{record.name}</td>
-                        <td>{record.age}</td>
-                        <td className="text-secondary">{record.gamePlatform}</td>
-                        <td>{record.genreName}</td>
-                        <td className="text-primary">{record.gameTitle}</td>
-                    </tr>
-                ))}
+                    {recordsResponse?.content.map(record => (
+                        <tr key={record.id}>
+                            <td>{formatDate(record.moment)}</td>
+                            <td>{record.name}</td>
+                            <td>{record.age}</td>
+                            <td className="text-secondary">{record.gamePlatform}</td>
+                            <td>{record.genreName}</td>
+                            <td className="text-primary">{record.gameTitle}</td>
+                        </tr>
+                    ))}
                 </tbody>
             </table>
-            <Pagination 
+            <Pagination
                 activePage={activePage}
                 goToPage={handlePageChange}
                 totalPages={recordsResponse?.totalPages}
