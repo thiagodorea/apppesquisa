@@ -12,7 +12,7 @@
 	<groupId>com.devsuperior</groupId>
 	<artifactId>dspesquisa</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>dspesquisa</name>
 	<description>Projeto da Semana DevSuperior</description>
 
