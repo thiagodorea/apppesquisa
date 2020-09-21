@@ -6,7 +6,7 @@ import './style.css'
 import Chart from 'react-apexcharts';
 import { barOptions, pieOptions } from './chart-options';
 
-const BASE_URL = 'http://10.146.23.24:8080'
+const BASE_URL = 'https://dspesquisa-thiago.herokuapp.com';
 
 type PieChartData = {
     labels: string[];
