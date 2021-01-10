@@ -1,5 +1,5 @@
 export const pieOptions = {
-    chart: {
+    chart: { 
       background: "transparent",
       foreColor: "red",
     },
