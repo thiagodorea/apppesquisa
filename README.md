@@ -12,4 +12,5 @@ https://sdspesquisa.netlify.app
 
 
 ## Tecnologias
-### Desenvolvido em REACT, JAVA SPRING BOOT
+>REACT
+>JAVA SPRING BOOT
