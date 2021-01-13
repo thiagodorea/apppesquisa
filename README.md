@@ -6,7 +6,7 @@ Sistema de pesquisa de preferências
 
 ## Acesso ao sistema
 Sistema hospedado em cloud
-https://sdspesquisa.netlify.app/
+https://sdspesquisa.netlify.app
 
 
-### Desenvolvido em REACT
+### Desenvolvido em REACT, JAVA SPRING BOOT
